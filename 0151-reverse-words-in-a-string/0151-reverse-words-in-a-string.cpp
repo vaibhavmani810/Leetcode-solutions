@@ -1,7 +1,10 @@
 class Solution {
 public:
+    // Idea is simple first reverse the whole string and then each word one by one we will get our result
+    // there are some another methods also which are easy to implement like using stack but we are trying to excute follow up of O(1) space .
     string reverseWords(string s) {
-        reverse(s.begin(),s.end());
+       reverse(s.begin(),s.end()); // first step reverse whole string
+       // remove extra spaces 
        int i=0;
         int n=s.size();
         while(n>i+1)
@@ -22,10 +25,11 @@ public:
         {
             s.pop_back();
         }
+        // after this point our string will not have any extra space in between
         vector<int> ans;
         for(int i=0;i<s.size();i++)
         {
-            if(s[i]==' ')ans.push_back(i);
+            if(s[i]==' ')ans.push_back(i); // storing position of spaces to reverse word with the help of spaces
         }
         if(ans.size()>0){
         int prev=0,last=s.size()-1;
